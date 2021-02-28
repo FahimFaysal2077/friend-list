@@ -1,9 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import personData from './fakeData/data.json';
 
 function App() {
+  const [person, setPerson] = useState([]);
+
+  useEffect(()=>{
+    setPerson(personData);
+    console.log(personData);
+  }, [])
+
   return (
     <div className="App">
+      <h1>Person Loaded: {person.length}</h1>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
